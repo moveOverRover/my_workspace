@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  ros_devel_workspace:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: ros_devel_workspace
+    environment:
+      - DISPLAY=${DISPLAY}
+      - "QT_X11_NO_MITSHM=1"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - user:/home/alex
+    network_mode: host
+    runtime: nvidia
+    command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'dof:=6' 'base:=false'
+
+volumes:
+  user:
+   driver: local
+   driver_opts:
+    o: bind
+    type: none
+    device: /home/alex
