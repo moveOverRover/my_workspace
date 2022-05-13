@@ -2,7 +2,7 @@ FROM osrf/ros:foxy-ros1-bridge
 
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
-RUN apt-get install ros-noetic-genpy
+RUN apt-get update && apt-get install ros-noetic-genpy
 
 # Kinova Kortex Gen 3 arm packages 
 RUN apt-get update && apt-get -y install python3-pip
@@ -43,4 +43,4 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 ADD ros_entrypoint.sh /usr/bin/ros_entrypoint
 RUN chmod +x /usr/bin/ros_entrypoint
 
-ENTRYPOINT [ "ros_entrypoint" ]
+ENTRYPOINT ["ros_entrypoint"]

@@ -6,15 +6,18 @@ services:
       context: .
       dockerfile: dockerfile
     image: ros_devel_workspace
+    # stdin_open: true # docker run -i
+    # tty: true  
     environment:
       - DISPLAY=${DISPLAY}
       - "QT_X11_NO_MITSHM=1"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - user:/home/alex
+      - user:/home/{USERNAME}
     network_mode: host
     runtime: nvidia
-    command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'dof:=6' 'base:=false'
+    # command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'dof:=6' 'base:=false'
+    command: tail -F anything
 
 volumes:
   user:
@@ -22,4 +25,4 @@ volumes:
    driver_opts:
     o: bind
     type: none
-    device: /home/alex
+    device: /home/${USERNAME}
