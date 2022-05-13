@@ -1,1 +1,1 @@
-# my_ros_workspace
+# my_workspace
