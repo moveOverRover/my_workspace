@@ -17,7 +17,8 @@ RUN apt-get -y install \
     ros-noetic-xacro \
     ros-noetic-ros-controllers ros-noetic-ros-control\
     ros-noetic-octomap-rviz-plugins \
-    libzbar0 && pip install pyzbar 
+    libzbar0 && pip install pyzbar \
+    ros-noetic-image-pipeline 
 RUN pip install imutils
 RUN apt-get -y install gstreamer1.0-tools gstreamer1.0-libav libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev gstreamer1.0-plugins-good gstreamer1.0-plugins-base \
     ros-noetic-rgbd-launch

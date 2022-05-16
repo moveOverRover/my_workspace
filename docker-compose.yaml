@@ -13,7 +13,7 @@ services:
       - "QT_X11_NO_MITSHM=1"
     volumes:
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - user:/home/{USERNAME}
+      - user:/home/${USERNAME}
     network_mode: host
     runtime: nvidia
     # command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'dof:=6' 'base:=false'
