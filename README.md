@@ -1,4 +1,5 @@
 # my_workspace
+xhost +local:docker
 
 docker exec -it my_workspace_ros_devel_workspace_1 bash -c "source /opt/ros/noetic/setup.bash ;
         source /home/alex/dev/irl_kortex/catkin_ws/devel/setup.bash; bash"

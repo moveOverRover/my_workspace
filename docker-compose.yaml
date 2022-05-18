@@ -16,8 +16,8 @@ services:
       - user:/home/${USERNAME}
     network_mode: host
     runtime: nvidia
-    # command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'dof:=6' 'base:=false'
-    command: tail -F anything
+    command: roslaunch kortex_gazebo spawn_kortex_robot.launch 'base:=false'
+    # command: tail -F anything
 
 volumes:
   user:

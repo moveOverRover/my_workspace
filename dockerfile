@@ -16,7 +16,6 @@ RUN apt-get -y install \
     ros-noetic-moveit-kinematics \ 
     ros-noetic-xacro \
     ros-noetic-ros-controllers ros-noetic-ros-control\
-    ros-noetic-octomap-rviz-plugins \
     ros-noetic-image-pipeline \
     libzbar0 && pip install pyzbar
 RUN pip install imutils
@@ -35,6 +34,8 @@ RUN apt-get -y install \
 
 # things I need
 RUN apt-get install -y ros-noetic-gazebo-ros-pkgs
+# RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ros-noetic-octomap # without noninteractive front end it asks for keybaord input which I cant give, with it, it doesnt let gazebo or rviz get launched
+# RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ros-noetic-octomap ros-noetic-octomap-mapping
 
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
